@@ -1,0 +1,597 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		33C93D0E25B212E5008C3DD3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C93D0D25B212E5008C3DD3 /* AppDelegate.swift */; };
+		33C93D1225B212E5008C3DD3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C93D1125B212E5008C3DD3 /* ViewController.swift */; };
+		33C93D1725B212E5008C3DD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33C93D1625B212E5008C3DD3 /* Assets.xcassets */; };
+		33C93D1A25B212E5008C3DD3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33C93D1825B212E5008C3DD3 /* LaunchScreen.storyboard */; };
+		33C93D2525B212E6008C3DD3 /* GXWaterfallViewLayoutSmapleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C93D2425B212E6008C3DD3 /* GXWaterfallViewLayoutSmapleTests.swift */; };
+		33C93D3025B212E6008C3DD3 /* GXWaterfallViewLayoutSmapleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C93D2F25B212E6008C3DD3 /* GXWaterfallViewLayoutSmapleUITests.swift */; };
+		33E96CD925B217C800C57DAB /* GXWaterfallViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E96CD825B217C800C57DAB /* GXWaterfallViewLayout.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		33C93D2125B212E6008C3DD3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 33C93D0225B212E5008C3DD3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 33C93D0925B212E5008C3DD3;
+			remoteInfo = GXWaterfallViewLayoutSmaple;
+		};
+		33C93D2C25B212E6008C3DD3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 33C93D0225B212E5008C3DD3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 33C93D0925B212E5008C3DD3;
+			remoteInfo = GXWaterfallViewLayoutSmaple;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		33C93D0A25B212E5008C3DD3 /* GXWaterfallViewLayoutSmaple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GXWaterfallViewLayoutSmaple.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		33C93D0D25B212E5008C3DD3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		33C93D1125B212E5008C3DD3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		33C93D1625B212E5008C3DD3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		33C93D1925B212E5008C3DD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		33C93D1B25B212E5008C3DD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		33C93D2025B212E6008C3DD3 /* GXWaterfallViewLayoutSmapleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GXWaterfallViewLayoutSmapleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		33C93D2425B212E6008C3DD3 /* GXWaterfallViewLayoutSmapleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GXWaterfallViewLayoutSmapleTests.swift; sourceTree = "<group>"; };
+		33C93D2625B212E6008C3DD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		33C93D2B25B212E6008C3DD3 /* GXWaterfallViewLayoutSmapleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GXWaterfallViewLayoutSmapleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		33C93D2F25B212E6008C3DD3 /* GXWaterfallViewLayoutSmapleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GXWaterfallViewLayoutSmapleUITests.swift; sourceTree = "<group>"; };
+		33C93D3125B212E6008C3DD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		33E96CD825B217C800C57DAB /* GXWaterfallViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GXWaterfallViewLayout.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		33C93D0725B212E5008C3DD3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		33C93D1D25B212E6008C3DD3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		33C93D2825B212E6008C3DD3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		33C93D0125B212E5008C3DD3 = {
+			isa = PBXGroup;
+			children = (
+				33C93D0C25B212E5008C3DD3 /* GXWaterfallViewLayoutSmaple */,
+				33C93D2325B212E6008C3DD3 /* GXWaterfallViewLayoutSmapleTests */,
+				33C93D2E25B212E6008C3DD3 /* GXWaterfallViewLayoutSmapleUITests */,
+				33C93D0B25B212E5008C3DD3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		33C93D0B25B212E5008C3DD3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				33C93D0A25B212E5008C3DD3 /* GXWaterfallViewLayoutSmaple.app */,
+				33C93D2025B212E6008C3DD3 /* GXWaterfallViewLayoutSmapleTests.xctest */,
+				33C93D2B25B212E6008C3DD3 /* GXWaterfallViewLayoutSmapleUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		33C93D0C25B212E5008C3DD3 /* GXWaterfallViewLayoutSmaple */ = {
+			isa = PBXGroup;
+			children = (
+				33C93D4025B21300008C3DD3 /* GXWaterfallViewLayout */,
+				33C93D0D25B212E5008C3DD3 /* AppDelegate.swift */,
+				33C93D1125B212E5008C3DD3 /* ViewController.swift */,
+				33C93D1625B212E5008C3DD3 /* Assets.xcassets */,
+				33C93D1825B212E5008C3DD3 /* LaunchScreen.storyboard */,
+				33C93D1B25B212E5008C3DD3 /* Info.plist */,
+			);
+			path = GXWaterfallViewLayoutSmaple;
+			sourceTree = "<group>";
+		};
+		33C93D2325B212E6008C3DD3 /* GXWaterfallViewLayoutSmapleTests */ = {
+			isa = PBXGroup;
+			children = (
+				33C93D2425B212E6008C3DD3 /* GXWaterfallViewLayoutSmapleTests.swift */,
+				33C93D2625B212E6008C3DD3 /* Info.plist */,
+			);
+			path = GXWaterfallViewLayoutSmapleTests;
+			sourceTree = "<group>";
+		};
+		33C93D2E25B212E6008C3DD3 /* GXWaterfallViewLayoutSmapleUITests */ = {
+			isa = PBXGroup;
+			children = (
+				33C93D2F25B212E6008C3DD3 /* GXWaterfallViewLayoutSmapleUITests.swift */,
+				33C93D3125B212E6008C3DD3 /* Info.plist */,
+			);
+			path = GXWaterfallViewLayoutSmapleUITests;
+			sourceTree = "<group>";
+		};
+		33C93D4025B21300008C3DD3 /* GXWaterfallViewLayout */ = {
+			isa = PBXGroup;
+			children = (
+				33E96CD825B217C800C57DAB /* GXWaterfallViewLayout.swift */,
+			);
+			name = GXWaterfallViewLayout;
+			path = ../../GXWaterfallViewLayout;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		33C93D0925B212E5008C3DD3 /* GXWaterfallViewLayoutSmaple */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 33C93D3425B212E6008C3DD3 /* Build configuration list for PBXNativeTarget "GXWaterfallViewLayoutSmaple" */;
+			buildPhases = (
+				33C93D0625B212E5008C3DD3 /* Sources */,
+				33C93D0725B212E5008C3DD3 /* Frameworks */,
+				33C93D0825B212E5008C3DD3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GXWaterfallViewLayoutSmaple;
+			productName = GXWaterfallViewLayoutSmaple;
+			productReference = 33C93D0A25B212E5008C3DD3 /* GXWaterfallViewLayoutSmaple.app */;
+			productType = "com.apple.product-type.application";
+		};
+		33C93D1F25B212E6008C3DD3 /* GXWaterfallViewLayoutSmapleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 33C93D3725B212E6008C3DD3 /* Build configuration list for PBXNativeTarget "GXWaterfallViewLayoutSmapleTests" */;
+			buildPhases = (
+				33C93D1C25B212E6008C3DD3 /* Sources */,
+				33C93D1D25B212E6008C3DD3 /* Frameworks */,
+				33C93D1E25B212E6008C3DD3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				33C93D2225B212E6008C3DD3 /* PBXTargetDependency */,
+			);
+			name = GXWaterfallViewLayoutSmapleTests;
+			productName = GXWaterfallViewLayoutSmapleTests;
+			productReference = 33C93D2025B212E6008C3DD3 /* GXWaterfallViewLayoutSmapleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		33C93D2A25B212E6008C3DD3 /* GXWaterfallViewLayoutSmapleUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 33C93D3A25B212E6008C3DD3 /* Build configuration list for PBXNativeTarget "GXWaterfallViewLayoutSmapleUITests" */;
+			buildPhases = (
+				33C93D2725B212E6008C3DD3 /* Sources */,
+				33C93D2825B212E6008C3DD3 /* Frameworks */,
+				33C93D2925B212E6008C3DD3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				33C93D2D25B212E6008C3DD3 /* PBXTargetDependency */,
+			);
+			name = GXWaterfallViewLayoutSmapleUITests;
+			productName = GXWaterfallViewLayoutSmapleUITests;
+			productReference = 33C93D2B25B212E6008C3DD3 /* GXWaterfallViewLayoutSmapleUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		33C93D0225B212E5008C3DD3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1230;
+				LastUpgradeCheck = 1230;
+				TargetAttributes = {
+					33C93D0925B212E5008C3DD3 = {
+						CreatedOnToolsVersion = 12.3;
+					};
+					33C93D1F25B212E6008C3DD3 = {
+						CreatedOnToolsVersion = 12.3;
+						TestTargetID = 33C93D0925B212E5008C3DD3;
+					};
+					33C93D2A25B212E6008C3DD3 = {
+						CreatedOnToolsVersion = 12.3;
+						TestTargetID = 33C93D0925B212E5008C3DD3;
+					};
+				};
+			};
+			buildConfigurationList = 33C93D0525B212E5008C3DD3 /* Build configuration list for PBXProject "GXWaterfallViewLayoutSmaple" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 33C93D0125B212E5008C3DD3;
+			productRefGroup = 33C93D0B25B212E5008C3DD3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				33C93D0925B212E5008C3DD3 /* GXWaterfallViewLayoutSmaple */,
+				33C93D1F25B212E6008C3DD3 /* GXWaterfallViewLayoutSmapleTests */,
+				33C93D2A25B212E6008C3DD3 /* GXWaterfallViewLayoutSmapleUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		33C93D0825B212E5008C3DD3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33C93D1A25B212E5008C3DD3 /* LaunchScreen.storyboard in Resources */,
+				33C93D1725B212E5008C3DD3 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		33C93D1E25B212E6008C3DD3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		33C93D2925B212E6008C3DD3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		33C93D0625B212E5008C3DD3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33C93D1225B212E5008C3DD3 /* ViewController.swift in Sources */,
+				33C93D0E25B212E5008C3DD3 /* AppDelegate.swift in Sources */,
+				33E96CD925B217C800C57DAB /* GXWaterfallViewLayout.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		33C93D1C25B212E6008C3DD3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33C93D2525B212E6008C3DD3 /* GXWaterfallViewLayoutSmapleTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		33C93D2725B212E6008C3DD3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33C93D3025B212E6008C3DD3 /* GXWaterfallViewLayoutSmapleUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		33C93D2225B212E6008C3DD3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 33C93D0925B212E5008C3DD3 /* GXWaterfallViewLayoutSmaple */;
+			targetProxy = 33C93D2125B212E6008C3DD3 /* PBXContainerItemProxy */;
+		};
+		33C93D2D25B212E6008C3DD3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 33C93D0925B212E5008C3DD3 /* GXWaterfallViewLayoutSmaple */;
+			targetProxy = 33C93D2C25B212E6008C3DD3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		33C93D1825B212E5008C3DD3 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				33C93D1925B212E5008C3DD3 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		33C93D3225B212E6008C3DD3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		33C93D3325B212E6008C3DD3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		33C93D3525B212E6008C3DD3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L54KZN9KMH;
+				INFOPLIST_FILE = GXWaterfallViewLayoutSmaple/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.gin.GXWaterfallViewLayoutSmaple;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		33C93D3625B212E6008C3DD3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L54KZN9KMH;
+				INFOPLIST_FILE = GXWaterfallViewLayoutSmaple/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.gin.GXWaterfallViewLayoutSmaple;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		33C93D3825B212E6008C3DD3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L54KZN9KMH;
+				INFOPLIST_FILE = GXWaterfallViewLayoutSmapleTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.gin.GXWaterfallViewLayoutSmapleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GXWaterfallViewLayoutSmaple.app/GXWaterfallViewLayoutSmaple";
+			};
+			name = Debug;
+		};
+		33C93D3925B212E6008C3DD3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L54KZN9KMH;
+				INFOPLIST_FILE = GXWaterfallViewLayoutSmapleTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.gin.GXWaterfallViewLayoutSmapleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GXWaterfallViewLayoutSmaple.app/GXWaterfallViewLayoutSmaple";
+			};
+			name = Release;
+		};
+		33C93D3B25B212E6008C3DD3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L54KZN9KMH;
+				INFOPLIST_FILE = GXWaterfallViewLayoutSmapleUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.gin.GXWaterfallViewLayoutSmapleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = GXWaterfallViewLayoutSmaple;
+			};
+			name = Debug;
+		};
+		33C93D3C25B212E6008C3DD3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L54KZN9KMH;
+				INFOPLIST_FILE = GXWaterfallViewLayoutSmapleUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.gin.GXWaterfallViewLayoutSmapleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = GXWaterfallViewLayoutSmaple;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		33C93D0525B212E5008C3DD3 /* Build configuration list for PBXProject "GXWaterfallViewLayoutSmaple" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				33C93D3225B212E6008C3DD3 /* Debug */,
+				33C93D3325B212E6008C3DD3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		33C93D3425B212E6008C3DD3 /* Build configuration list for PBXNativeTarget "GXWaterfallViewLayoutSmaple" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				33C93D3525B212E6008C3DD3 /* Debug */,
+				33C93D3625B212E6008C3DD3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		33C93D3725B212E6008C3DD3 /* Build configuration list for PBXNativeTarget "GXWaterfallViewLayoutSmapleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				33C93D3825B212E6008C3DD3 /* Debug */,
+				33C93D3925B212E6008C3DD3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		33C93D3A25B212E6008C3DD3 /* Build configuration list for PBXNativeTarget "GXWaterfallViewLayoutSmapleUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				33C93D3B25B212E6008C3DD3 /* Debug */,
+				33C93D3C25B212E6008C3DD3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 33C93D0225B212E5008C3DD3 /* Project object */;
+}
