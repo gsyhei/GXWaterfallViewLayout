@@ -7,9 +7,9 @@
 
 import UIKit
 
-public protocol GXWaterfallViewLayoutDelegate: NSObjectProtocol {
+@objc public protocol GXWaterfallViewLayoutDelegate: NSObjectProtocol {
     func size(layout: GXWaterfallViewLayout, indexPath: IndexPath, itemSize: CGFloat) -> CGFloat
-    
+    @objc optional func moveItem(at sourceIndexPaths:[IndexPath], toIndexPaths:[IndexPath])
 }
 
 public class GXWaterfallViewLayout: UICollectionViewLayout {
@@ -21,12 +21,12 @@ public class GXWaterfallViewLayout: UICollectionViewLayout {
     public var sectionInset: UIEdgeInsets = .zero
     public var scrollDirection: UICollectionView.ScrollDirection = .vertical
     public weak var delegate: GXWaterfallViewLayoutDelegate?
-    public var shouldAnimations: Array<IndexPath> = Array()
+    public var shouldAnimations: Array<IndexPath> = []
     
-    private var cellLayoutInfo: Dictionary<IndexPath, UICollectionViewLayoutAttributes> = Dictionary()
-    private var headLayoutInfo: Dictionary<IndexPath, UICollectionViewLayoutAttributes> = Dictionary()
-    private var footLayoutInfo: Dictionary<IndexPath, UICollectionViewLayoutAttributes> = Dictionary()
-    private var maxScrollDirPositionForColumn: Dictionary<Int, CGFloat> = Dictionary()
+    private var cellLayoutInfo: Dictionary<IndexPath, UICollectionViewLayoutAttributes> = [:]
+    private var headLayoutInfo: Dictionary<IndexPath, UICollectionViewLayoutAttributes> = [:]
+    private var footLayoutInfo: Dictionary<IndexPath, UICollectionViewLayoutAttributes> = [:]
+    private var maxScrollDirPositionForColumn: Dictionary<Int, CGFloat> = [:]
     private var startScrollDirPosition: CGFloat = 0
 }
 
@@ -94,79 +94,84 @@ public extension GXWaterfallViewLayout {
             fatalError("unknown scrollDirection.")
         }
     }
+    
+    override func finalizeCollectionViewUpdates() {
+        self.shouldAnimations.removeAll()
+    }
+    
+    override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
+        if self.collectionView!.bounds.size.equalTo(newBounds.size) {
+            return true
+        }
+        return false
+    }
+    
+    override func prepare(forCollectionViewUpdates updateItems: [UICollectionViewUpdateItem]) {
+        super.prepare(forCollectionViewUpdates: updateItems)
+        var indexPaths: Array<IndexPath> = []
+        for item in updateItems {
+            switch item.updateAction {
+            case .insert:
+                if item.indexPathAfterUpdate != nil {
+                    indexPaths.append(item.indexPathAfterUpdate!)
+                }
+            case .delete:
+                if item.indexPathBeforeUpdate != nil {
+                    indexPaths.append(item.indexPathBeforeUpdate!)
+                }
+            case .move, .reload:
+                if item.indexPathBeforeUpdate != nil {
+                    indexPaths.append(item.indexPathBeforeUpdate!)
+                }
+                if item.indexPathAfterUpdate != nil {
+                    indexPaths.append(item.indexPathAfterUpdate!)
+                }
+            default: break
+            }
+        }
+        self.shouldAnimations.append(contentsOf: indexPaths)
+    }
 
-    //    - (void)prepareForCollectionViewUpdates:(NSArray *)updateItems {
-    //        [super prepareForCollectionViewUpdates:updateItems];
-    //
-    //        NSMutableArray *indexPaths = [NSMutableArray array];
-    //        for (UICollectionViewUpdateItem *updateItem in updateItems) {
-    //            switch (updateItem.updateAction) {
-    //                case UICollectionUpdateActionInsert:
-    //                    [indexPaths addObject:updateItem.indexPathAfterUpdate];
-    //                    break;
-    //                case UICollectionUpdateActionDelete:
-    //                    [indexPaths addObject:updateItem.indexPathBeforeUpdate];
-    //                    break;
-    //                case UICollectionUpdateActionMove:
-    //                    [indexPaths addObject:updateItem.indexPathBeforeUpdate];
-    //                    [indexPaths addObject:updateItem.indexPathAfterUpdate];
-    //                    break;
-    //                default:
-    //                    NSLog(@"unhandled case: %@", updateItem);
-    //                    break;
-    //            }
-    //        }
-    //        self.shouldanimationArr = indexPaths;
-    //    }
-    //
-    //    //对应UICollectionViewUpdateItem 的indexPathBeforeUpdate 设置调用
-    //    - (UICollectionViewLayoutAttributes*)initialLayoutAttributesForAppearingItemAtIndexPath:(NSIndexPath *)itemIndexPath {
-    //        UICollectionViewLayoutAttributes *attr = [super initialLayoutAttributesForAppearingItemAtIndexPath:itemIndexPath];
-    //
-    //        if ([self.shouldanimationArr containsObject:itemIndexPath]) {
-    //            attr.transform = CGAffineTransformRotate(CGAffineTransformMakeScale(0.2, 0.2), M_PI);
-    //    //        attr.transform = CGAffineTransformMakeScale(0.1, 0.1); // CGAffineTransformRotate(CGAffineTransformMakeScale(0, 0), M_PI);
-    //            attr.center = CGPointMake(CGRectGetMidX(self.collectionView.bounds), CGRectGetMidY(self.collectionView.bounds));
-    //            attr.alpha = 0.1;
-    //            [self.shouldanimationArr removeObject:itemIndexPath];
-    //        }
-    //        return attr;
-    //    }
-    //
-    //    //对应UICollectionViewUpdateItem 的indexPathAfterUpdate 设置调用
-    //    - (nullable UICollectionViewLayoutAttributes *)finalLayoutAttributesForDisappearingItemAtIndexPath:(NSIndexPath *)itemIndexPath {
-    //        UICollectionViewLayoutAttributes *attr = [super finalLayoutAttributesForDisappearingItemAtIndexPath:itemIndexPath];
-    //        if ([self.shouldanimationArr containsObject:itemIndexPath]) {
-    //
-    //            attr.transform = CGAffineTransformMakeScale(0.1, 0.1); //CGAffineTransformRotate(CGAffineTransformMakeScale(0.1, 0.1), 0);
-    //    //        attr.center = CGPointMake(CGRectGetMidX(self.collectionView.bounds), CGRectGetMidY(self.collectionView.bounds));
-    //            attr.alpha = 0.1;
-    //            [self.shouldanimationArr removeObject:itemIndexPath];
-    //        }
-    //        return attr;
-    //    }
-    //
-    //    - (void)finalizeCollectionViewUpdates {
-    //        self.shouldanimationArr = nil;
-    //    }
-    //
-    //    - (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds {
-    //        CGRect oldBounds = self.collectionView.bounds;
-    //        if (!CGSizeEqualToSize(oldBounds.size, newBounds.size)) {
-    //            return YES;
-    //        }
-    //        return NO;
-    //    }
-    //
-    //    //移动相关
-    //    - (UICollectionViewLayoutInvalidationContext *)invalidationContextForInteractivelyMovingItems:(NSArray<NSIndexPath *> *)targetIndexPaths withTargetPosition:(CGPoint)targetPosition previousIndexPaths:(NSArray<NSIndexPath *> *)previousIndexPaths previousPosition:(CGPoint)previousPosition NS_AVAILABLE_IOS(9_0)
-    //    {
-    //        UICollectionViewLayoutInvalidationContext *context = [super invalidationContextForInteractivelyMovingItems:targetIndexPaths withTargetPosition:targetPosition previousIndexPaths:previousIndexPaths previousPosition:previousPosition];
-    //        if(self.delegate) {
-    //            [self.delegate moveItemAtSourceIndexPath:previousIndexPaths[0] toIndexPath:targetIndexPaths[0]];
-    //        }
-    //        return context;
-    //    }
+    // 对应UICollectionViewUpdateItem 的indexPathBeforeUpdate 设置调用
+    override func initialLayoutAttributesForAppearingItem(at itemIndexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+        let attributes = super.initialLayoutAttributesForAppearingItem(at: itemIndexPath)
+        guard attributes != nil else { return nil }
+        if self.shouldAnimations.contains(itemIndexPath) {
+            attributes?.center = CGPoint(x: self.collectionView!.bounds.midX, y: self.collectionView!.bounds.midY)
+            attributes?.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+            attributes?.alpha = 0.1
+            self.shouldAnimations.removeAll { (indexPath) -> Bool in
+                return itemIndexPath == indexPath
+            }
+        }
+        return attributes
+    }
+    
+    // 对应UICollectionViewUpdateItem 的indexPathAfterUpdate 设置调用
+    override func finalLayoutAttributesForDisappearingItem(at itemIndexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+        let attributes = super.initialLayoutAttributesForAppearingItem(at: itemIndexPath)
+        guard attributes != nil else { return nil }
+        if self.shouldAnimations.contains(itemIndexPath) {
+            attributes?.center = CGPoint(x: self.collectionView!.bounds.midX, y: self.collectionView!.bounds.midY)
+            attributes?.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+            attributes?.alpha = 0.1
+            self.shouldAnimations.removeAll { (indexPath) -> Bool in
+                return itemIndexPath == indexPath
+            }
+        }
+        return attributes
+    }
+    
+    override func invalidationContext(forInteractivelyMovingItems targetIndexPaths: [IndexPath], withTargetPosition targetPosition: CGPoint, previousIndexPaths: [IndexPath], previousPosition: CGPoint) -> UICollectionViewLayoutInvalidationContext {
+        let context = super.invalidationContext(forInteractivelyMovingItems: targetIndexPaths, withTargetPosition: targetPosition, previousIndexPaths: previousIndexPaths, previousPosition: previousPosition)
+        if self.delegate != nil {
+            if self.delegate!.responds(to: #selector(self.delegate!.moveItem(at:toIndexPaths:))) {
+                self.delegate?.moveItem?(at: previousIndexPaths, toIndexPaths: targetIndexPaths)
+            }
+        }
+        return context
+    }
+    
 }
 
 fileprivate extension GXWaterfallViewLayout {
