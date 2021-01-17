@@ -95,15 +95,16 @@ public extension GXWaterfallViewLayout {
         }
     }
     
-    override func finalizeCollectionViewUpdates() {
-        self.shouldAnimations.removeAll()
-    }
-    
     override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
         if self.collectionView!.bounds.size.equalTo(newBounds.size) {
             return true
         }
         return false
+    }
+    
+    /** 这部分updateAction的代码只作为参考，可以继承重写来做效果
+    override func finalizeCollectionViewUpdates() {
+        self.shouldAnimations.removeAll()
     }
     
     override func prepare(forCollectionViewUpdates updateItems: [UICollectionViewUpdateItem]) {
@@ -171,7 +172,7 @@ public extension GXWaterfallViewLayout {
         }
         return context
     }
-    
+    */
 }
 
 fileprivate extension GXWaterfallViewLayout {
