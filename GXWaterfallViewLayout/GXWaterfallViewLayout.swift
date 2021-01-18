@@ -85,6 +85,7 @@ public extension GXWaterfallViewLayout {
     }
     
     override var collectionViewContentSize: CGSize {
+        guard self.collectionView != nil else { return .zero }
         switch self.scrollDirection {
         case .vertical:
             return CGSize(width: max(self.startScrollDirPosition, self.collectionView!.frame.width), height: self.collectionView!.frame.height)
@@ -96,6 +97,7 @@ public extension GXWaterfallViewLayout {
     }
     
     override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
+        guard self.collectionView != nil else { return false }
         if self.collectionView!.bounds.size.equalTo(newBounds.size) {
             return true
         }

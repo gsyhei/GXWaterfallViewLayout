@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gBz-Ed-KbZ" customClass="GXWaterCVCell">
+            <rect key="frame" x="0.0" y="0.0" width="160" height="161"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="160" height="161"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Bte-bC-rhd">
+                        <rect key="frame" x="0.0" y="0.0" width="160" height="161"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kWh-cb-Mkb">
+                        <rect key="frame" x="0.0" y="140" width="160" height="21"/>
+                        <color key="backgroundColor" red="0.78039217000000005" green="0.92941176889999999" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="QfI-nn-9Ue"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.83529411760000005" green="0.18039215689999999" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="Bte-bC-rhd" firstAttribute="top" secondItem="gBz-Ed-KbZ" secondAttribute="top" id="LQW-hJ-rJ8"/>
+                <constraint firstAttribute="bottom" secondItem="kWh-cb-Mkb" secondAttribute="bottom" id="OQP-kx-gnV"/>
+                <constraint firstItem="kWh-cb-Mkb" firstAttribute="leading" secondItem="gBz-Ed-KbZ" secondAttribute="leading" id="SI9-Ni-MLH"/>
+                <constraint firstAttribute="bottom" secondItem="Bte-bC-rhd" secondAttribute="bottom" id="e9q-eo-heo"/>
+                <constraint firstAttribute="trailing" secondItem="kWh-cb-Mkb" secondAttribute="trailing" id="ewu-Hp-NwZ"/>
+                <constraint firstAttribute="trailing" secondItem="Bte-bC-rhd" secondAttribute="trailing" id="t6A-1Y-F06"/>
+                <constraint firstItem="Bte-bC-rhd" firstAttribute="leading" secondItem="gBz-Ed-KbZ" secondAttribute="leading" id="yDm-nV-cAq"/>
+            </constraints>
+            <size key="customSize" width="160" height="161"/>
+            <connections>
+                <outlet property="imageView" destination="Bte-bC-rhd" id="T8G-sy-XOG"/>
+                <outlet property="textTitle" destination="kWh-cb-Mkb" id="Ldb-XO-Q7b"/>
+            </connections>
+            <point key="canvasLocation" x="-21" y="109.5"/>
+        </collectionViewCell>
+    </objects>
+</document>

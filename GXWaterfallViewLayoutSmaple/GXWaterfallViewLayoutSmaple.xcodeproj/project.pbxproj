@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		33A4858A25B5F02400DB1271 /* GXWaterCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A4858825B5F02400DB1271 /* GXWaterCVCell.swift */; };
+		33A4858B25B5F02400DB1271 /* GXWaterCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33A4858925B5F02400DB1271 /* GXWaterCVCell.xib */; };
+		33A4859425B5F0CF00DB1271 /* GXHeaderCRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A4859225B5F0CF00DB1271 /* GXHeaderCRView.swift */; };
+		33A4859525B5F0CF00DB1271 /* GXHeaderCRView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33A4859325B5F0CF00DB1271 /* GXHeaderCRView.xib */; };
+		33A4859B25B5F0DF00DB1271 /* GXFooterCRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A4859925B5F0DF00DB1271 /* GXFooterCRView.swift */; };
+		33A4859C25B5F0DF00DB1271 /* GXFooterCRView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33A4859A25B5F0DF00DB1271 /* GXFooterCRView.xib */; };
+		33A485A125B5F28700DB1271 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33A485A025B5F28700DB1271 /* ViewController.xib */; };
+		33A485A725B5F44B00DB1271 /* GXWaterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A485A525B5F44B00DB1271 /* GXWaterViewController.swift */; };
 		33C93D0E25B212E5008C3DD3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C93D0D25B212E5008C3DD3 /* AppDelegate.swift */; };
 		33C93D1225B212E5008C3DD3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C93D1125B212E5008C3DD3 /* ViewController.swift */; };
 		33C93D1725B212E5008C3DD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33C93D1625B212E5008C3DD3 /* Assets.xcassets */; };
@@ -34,6 +42,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		33A4858825B5F02400DB1271 /* GXWaterCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GXWaterCVCell.swift; sourceTree = "<group>"; };
+		33A4858925B5F02400DB1271 /* GXWaterCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GXWaterCVCell.xib; sourceTree = "<group>"; };
+		33A4859225B5F0CF00DB1271 /* GXHeaderCRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GXHeaderCRView.swift; sourceTree = "<group>"; };
+		33A4859325B5F0CF00DB1271 /* GXHeaderCRView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GXHeaderCRView.xib; sourceTree = "<group>"; };
+		33A4859925B5F0DF00DB1271 /* GXFooterCRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GXFooterCRView.swift; sourceTree = "<group>"; };
+		33A4859A25B5F0DF00DB1271 /* GXFooterCRView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GXFooterCRView.xib; sourceTree = "<group>"; };
+		33A485A025B5F28700DB1271 /* ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
+		33A485A525B5F44B00DB1271 /* GXWaterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GXWaterViewController.swift; sourceTree = "<group>"; };
 		33C93D0A25B212E5008C3DD3 /* GXWaterfallViewLayoutSmaple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GXWaterfallViewLayoutSmaple.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33C93D0D25B212E5008C3DD3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		33C93D1125B212E5008C3DD3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +90,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		33A4858725B5EFEF00DB1271 /* GXWaterfallView */ = {
+			isa = PBXGroup;
+			children = (
+				33A4858825B5F02400DB1271 /* GXWaterCVCell.swift */,
+				33A4858925B5F02400DB1271 /* GXWaterCVCell.xib */,
+				33A4859225B5F0CF00DB1271 /* GXHeaderCRView.swift */,
+				33A4859325B5F0CF00DB1271 /* GXHeaderCRView.xib */,
+				33A4859925B5F0DF00DB1271 /* GXFooterCRView.swift */,
+				33A4859A25B5F0DF00DB1271 /* GXFooterCRView.xib */,
+				33A485A525B5F44B00DB1271 /* GXWaterViewController.swift */,
+			);
+			path = GXWaterfallView;
+			sourceTree = "<group>";
+		};
 		33C93D0125B212E5008C3DD3 = {
 			isa = PBXGroup;
 			children = (
@@ -98,8 +128,10 @@
 			isa = PBXGroup;
 			children = (
 				33C93D4025B21300008C3DD3 /* GXWaterfallViewLayout */,
+				33A4858725B5EFEF00DB1271 /* GXWaterfallView */,
 				33C93D0D25B212E5008C3DD3 /* AppDelegate.swift */,
 				33C93D1125B212E5008C3DD3 /* ViewController.swift */,
+				33A485A025B5F28700DB1271 /* ViewController.xib */,
 				33C93D1625B212E5008C3DD3 /* Assets.xcassets */,
 				33C93D1825B212E5008C3DD3 /* LaunchScreen.storyboard */,
 				33C93D1B25B212E5008C3DD3 /* Info.plist */,
@@ -238,7 +270,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				33C93D1A25B212E5008C3DD3 /* LaunchScreen.storyboard in Resources */,
+				33A4858B25B5F02400DB1271 /* GXWaterCVCell.xib in Resources */,
 				33C93D1725B212E5008C3DD3 /* Assets.xcassets in Resources */,
+				33A4859C25B5F0DF00DB1271 /* GXFooterCRView.xib in Resources */,
+				33A485A125B5F28700DB1271 /* ViewController.xib in Resources */,
+				33A4859525B5F0CF00DB1271 /* GXHeaderCRView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +300,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				33C93D1225B212E5008C3DD3 /* ViewController.swift in Sources */,
+				33A4859B25B5F0DF00DB1271 /* GXFooterCRView.swift in Sources */,
+				33A485A725B5F44B00DB1271 /* GXWaterViewController.swift in Sources */,
+				33A4859425B5F0CF00DB1271 /* GXHeaderCRView.swift in Sources */,
+				33A4858A25B5F02400DB1271 /* GXWaterCVCell.swift in Sources */,
 				33C93D0E25B212E5008C3DD3 /* AppDelegate.swift in Sources */,
 				33E96CD925B217C800C57DAB /* GXWaterfallViewLayout.swift in Sources */,
 			);
