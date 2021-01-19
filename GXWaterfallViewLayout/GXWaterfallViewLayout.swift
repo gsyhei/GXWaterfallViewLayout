@@ -9,7 +9,7 @@ import UIKit
 
 @objc public protocol GXWaterfallViewLayoutDelegate: NSObjectProtocol {
     func size(layout: GXWaterfallViewLayout, indexPath: IndexPath, itemSize: CGFloat) -> CGFloat
-    @objc optional func moveItem(at sourceIndexPaths:[IndexPath], toIndexPaths:[IndexPath])
+    @objc optional func moveItem(at sourceIndexPath:IndexPath, toIndexPath:IndexPath)
 }
 
 public class GXWaterfallViewLayout: UICollectionViewLayout {
@@ -88,9 +88,9 @@ public extension GXWaterfallViewLayout {
         guard self.collectionView != nil else { return .zero }
         switch self.scrollDirection {
         case .vertical:
-            return CGSize(width: max(self.startScrollDirPosition, self.collectionView!.frame.width), height: self.collectionView!.frame.height)
-        case .horizontal:
             return CGSize(width: self.collectionView!.frame.width, height: max(self.startScrollDirPosition, self.collectionView!.frame.height))
+        case .horizontal:
+            return CGSize(width: max(self.startScrollDirPosition, self.collectionView!.frame.width), height: self.collectionView!.frame.height)
         @unknown default:
             fatalError("unknown scrollDirection.")
         }
@@ -104,7 +104,7 @@ public extension GXWaterfallViewLayout {
         return false
     }
     
-    /** 这部分updateAction的代码只作为参考，可以继承重写来做效果
+    // 这部分updateAction的代码可作为参考，可以继承重写来做效果
     override func finalizeCollectionViewUpdates() {
         self.shouldAnimations.removeAll()
     }
@@ -168,13 +168,12 @@ public extension GXWaterfallViewLayout {
     override func invalidationContext(forInteractivelyMovingItems targetIndexPaths: [IndexPath], withTargetPosition targetPosition: CGPoint, previousIndexPaths: [IndexPath], previousPosition: CGPoint) -> UICollectionViewLayoutInvalidationContext {
         let context = super.invalidationContext(forInteractivelyMovingItems: targetIndexPaths, withTargetPosition: targetPosition, previousIndexPaths: previousIndexPaths, previousPosition: previousPosition)
         if self.delegate != nil {
-            if self.delegate!.responds(to: #selector(self.delegate!.moveItem(at:toIndexPaths:))) {
-                self.delegate?.moveItem?(at: previousIndexPaths, toIndexPaths: targetIndexPaths)
+            if self.delegate!.responds(to: #selector(self.delegate!.moveItem(at:toIndexPath:))) {
+                self.delegate?.moveItem?(at: previousIndexPaths.first!, toIndexPath: targetIndexPaths.first!)
             }
         }
         return context
     }
-    */
 }
 
 fileprivate extension GXWaterfallViewLayout {

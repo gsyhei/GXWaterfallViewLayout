@@ -9,7 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gBz-Ed-KbZ" customClass="GXWaterCVCell">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gBz-Ed-KbZ" customClass="GXWaterCVCell" customModule="GXWaterfallViewLayoutSmaple" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="160" height="161"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -42,8 +42,8 @@
             </constraints>
             <size key="customSize" width="160" height="161"/>
             <connections>
-                <outlet property="imageView" destination="Bte-bC-rhd" id="T8G-sy-XOG"/>
-                <outlet property="textTitle" destination="kWh-cb-Mkb" id="Ldb-XO-Q7b"/>
+                <outlet property="imageView" destination="Bte-bC-rhd" id="KFg-gh-PCo"/>
+                <outlet property="textTitle" destination="kWh-cb-Mkb" id="e12-wq-hIW"/>
             </connections>
             <point key="canvasLocation" x="-21" y="109.5"/>
         </collectionViewCell>

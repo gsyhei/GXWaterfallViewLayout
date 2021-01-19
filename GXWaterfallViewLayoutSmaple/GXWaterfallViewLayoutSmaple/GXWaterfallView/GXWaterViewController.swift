@@ -17,17 +17,18 @@ class GXWaterViewController: UIViewController {
     private lazy var waterLayout: GXWaterfallViewLayout = {
         let layout = GXWaterfallViewLayout()
         layout.lineSpacing = 10.0
-        layout.interitemSpacing = 10.0;
+        layout.interitemSpacing = 10.0
         layout.sectionInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
         layout.scrollDirection = self.scrollDirection
-        self.waterLayout.headerSize = 40.0
-        self.waterLayout.footerSize = 40.0
+        layout.headerSize = 40.0
+        layout.footerSize = 40.0
         if (layout.scrollDirection == .vertical) {
-            self.waterLayout.numberOfColumns = 4;
+            layout.numberOfColumns = 4
         } else {
-            self.waterLayout.numberOfColumns = 5;
+            layout.numberOfColumns = 5
         }
-//        layout.delegate = self
+        layout.delegate = self
+        
         return layout
     }()
     
@@ -37,8 +38,9 @@ class GXWaterViewController: UIViewController {
         let collectionView = UICollectionView(frame: frame, collectionViewLayout: self.waterLayout)
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         collectionView.backgroundColor = UIColor.white
-//        self.waterCollectionView.delegate = self;
-//        self.waterCollectionView.dataSource = self;
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        
         return collectionView
     }()
     
@@ -58,11 +60,12 @@ class GXWaterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "瀑布流"
+        self.view.backgroundColor = UIColor.white
         self.view.addSubview(self.waterCollectionView)
         
-        self.waterCollectionView.register(UINib(nibName: NSStringFromClass(GXWaterCVCell.classForCoder()), bundle: nil), forCellWithReuseIdentifier: GXSectionCellID)
-        self.waterCollectionView.register(UINib(nibName: NSStringFromClass(GXHeaderCRView.classForCoder()), bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: GXSectionHeaderID)
-        self.waterCollectionView.register(UINib(nibName: NSStringFromClass(GXFooterCRView.classForCoder()), bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: GXSectionFooterID)
+        self.waterCollectionView.register(UINib(nibName: "GXWaterCVCell", bundle: nil), forCellWithReuseIdentifier: GXSectionCellID)
+        self.waterCollectionView.register(UINib(nibName: "GXHeaderCRView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: GXSectionHeaderID)
+        self.waterCollectionView.register(UINib(nibName: "GXFooterCRView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: GXSectionFooterID)
         
         let longGest = UILongPressGestureRecognizer(target: self, action: #selector(longGestTapped(_:)))
         self.waterCollectionView.addGestureRecognizer(longGest)
@@ -86,90 +89,70 @@ class GXWaterViewController: UIViewController {
     }
 }
 
-//extension GXWaterViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+extension GXWaterViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    // MARK: - UICollectionViewDataSource
     
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return self.imageList.count
+    }
     
-//    //设置head foot视图
-//    - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
-//        if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
-//            GXHeaderCRView *head = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:GXSectionHeaderID forIndexPath:indexPath];
-//            return head;
-//        }
-//        else if([kind isEqualToString:UICollectionElementKindSectionFooter]) {
-//            GXFooterCRView *foot = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:GXSectionFooterID forIndexPath:indexPath];
-//            return foot;
-//        }
-//        return nil;
-//    }
-//
-//    - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath NS_AVAILABLE_IOS(8_0)
-//    {
-//        cell.contentView.alpha = 0.2;
-//        cell.transform = CGAffineTransformRotate(CGAffineTransformMakeScale(0.5, 0.5), 0);
-//
-//        [UIView animateKeyframesWithDuration:.5 delay:0.0 options:0 animations:^{
-//            /** 分步动画   第一个参数是该动画开始的百分比时间  第二个参数是该动画持续的百分比时间 */
-//            [UIView addKeyframeWithRelativeStartTime:0.0 relativeDuration:0.8 animations:^{
-//                cell.contentView.alpha = 0.5;
-//                cell.transform = CGAffineTransformRotate(CGAffineTransformMakeScale(1.1, 1.1), 0);
-//            }];
-//            [UIView addKeyframeWithRelativeStartTime:0.8 relativeDuration:0.2 animations:^{
-//                cell.contentView.alpha = 1.0;
-//                cell.transform = CGAffineTransformRotate(CGAffineTransformMakeScale(1.0, 1.0), 0);
-//            }];
-//        } completion:^(BOOL finished) {}];
-//    }
-//
-//    - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-//        return self.imageArr.count;
-//    }
-//
-//    - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-//        return [self.imageArr[section] count];
-//    }
-//
-//    - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-//        GXWaterCVCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:GXSectionCellID forIndexPath:indexPath];
-//        cell.imageView.image = [UIImage imageNamed:self.imageArr[indexPath.section][indexPath.row]];
-//        cell.textTitle.text = [NSString stringWithFormat:@"%ld", indexPath.row];
-//
-//        return cell;
-//    }
-//
-//    - (BOOL)collectionView:(UICollectionView *)collectionView canMoveItemAtIndexPath:(NSIndexPath *)indexPath NS_AVAILABLE_IOS(9_0) {
-//        return YES;
-//    }
-//
-//    - (void)collectionView:(UICollectionView *)collectionView moveItemAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath NS_AVAILABLE_IOS(9_0) {
-//    }
-//
-//    - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-//        NSLog(@"didSelectItemAtIndexPath:%@", indexPath);
-//    }
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.imageList[section].count
+    }
     
-//}
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell: GXWaterCVCell = collectionView.dequeueReusableCell(withReuseIdentifier: GXSectionCellID, for: indexPath) as! GXWaterCVCell
+        cell.imageView.image = UIImage(named: self.imageList[indexPath.section][indexPath.row])
+        cell.textTitle.text = String(format: "%d", indexPath.row)
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        if kind == UICollectionView.elementKindSectionHeader {
+            let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: GXSectionHeaderID, for: indexPath)
+            return header
+        }
+        else {
+            let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: GXSectionFooterID, for: indexPath)
+            return footer
+        }
+    }
+    
+    // MARK: - UICollectionViewDelegate
+    
+    func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        NSLog("sourceIndexPath:%@, destinationIndexPath:%@", sourceIndexPath.description, destinationIndexPath.description)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        NSLog("didSelectItemAtIndexPath:%@", indexPath.description)
+    }
+}
 
+extension GXWaterViewController: GXWaterfallViewLayoutDelegate {
+    
+    func imageAtIndexPath(_ indexPath: IndexPath) -> UIImage {
+        return UIImage(named: self.imageList[indexPath.section][indexPath.row])!
+    }
+    
+    func size(layout: GXWaterfallViewLayout, indexPath: IndexPath, itemSize: CGFloat) -> CGFloat {
+        if layout.scrollDirection == .vertical {
+            return self.imageAtIndexPath(indexPath).size.height / self.imageAtIndexPath(indexPath).size.width * itemSize
+        }
+        else {
+            return self.imageAtIndexPath(indexPath).size.height / self.imageAtIndexPath(indexPath).size.width * itemSize
+        }
+    }
 
-
-//#pragma mark - GXWaterCollectionViewLayoutDelegate
-//
-//- (UIImage *)imageAtIndexPath:(NSIndexPath *)indexPath {
-//    return [UIImage imageNamed:[self.imageArr[indexPath.section] objectAtIndex:indexPath.row]];
-//}
-//
-//- (CGFloat)sizeWithLayout:(GXWaterCollectionViewLayout*)layout indexPath:(NSIndexPath*)indexPath itemSize:(CGFloat)itemSize {
-//    if (layout.scrollDirection == UICollectionViewScrollDirectionVertical) {
-//        return [self imageAtIndexPath:indexPath].size.height / [self imageAtIndexPath:indexPath].size.width * itemSize;
-//    } else {
-//        return [self imageAtIndexPath:indexPath].size.width / [self imageAtIndexPath:indexPath].size.height * itemSize;
-//    }
-//}
-//
-//- (void)moveItemAtSourceIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath NS_AVAILABLE_IOS(9_0) {
-//    if(sourceIndexPath.row != destinationIndexPath.row) {
-//        NSString *value = self.imageArr[sourceIndexPath.section][sourceIndexPath.row];
-//        [self.imageArr[sourceIndexPath.section] removeObjectAtIndex:sourceIndexPath.row];
-//        [self.imageArr[destinationIndexPath.section] insertObject:value atIndex:destinationIndexPath.row];
-//        NSLog(@"from:%@  to:%@", sourceIndexPath, destinationIndexPath);
-//    }
-//}
+    func moveItem(at sourceIndexPath: IndexPath, toIndexPath: IndexPath) {
+        NSLog("from:%@  to:%@", sourceIndexPath.description, toIndexPath.description);
+        let value: String = self.imageList[sourceIndexPath.section][sourceIndexPath.row]
+        self.imageList[sourceIndexPath.section].remove(at: sourceIndexPath.row)
+        self.imageList[toIndexPath.section].insert(value, at: toIndexPath.row)
+    }
+}

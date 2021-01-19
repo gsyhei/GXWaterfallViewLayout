@@ -9,41 +9,6 @@ import UIKit
 
 let GX_ITEM_TITLE: Array = ["瀑布流UICollectionView_纵向","瀑布流UICollectionView_横向"]
 
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    static NSString *identifier = @"cell";
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-//    if (cell == nil) {
-//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-//    }
-//    cell.textLabel.text = GX_ITEM_TITLE[indexPath.row];
-//
-//    return cell;
-//}
-//
-//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-//    switch (indexPath.row) {
-//        case 0:{
-//            GXWaterViewController *ctr = [[GXWaterViewController alloc] init];
-//            ctr.scrollDirection = UICollectionViewScrollDirectionVertical;
-//            ctr.view.backgroundColor = [UIColor whiteColor];
-//            ctr.title = GX_ITEM_TITLE[indexPath.row];
-//            [self.navigationController pushViewController:ctr animated:YES];
-//        }
-//            break;
-//        case 1:{
-//            GXWaterViewController *ctr = [[GXWaterViewController alloc] init];
-//            ctr.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-//            ctr.view.backgroundColor = [UIColor whiteColor];
-//            ctr.title = GX_ITEM_TITLE[indexPath.row];
-//            [self.navigationController pushViewController:ctr animated:YES];
-//        }
-//            break;
-//    }
-//}
-
 class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
@@ -75,7 +40,15 @@ extension ViewController : UITableViewDataSource, UITableViewDelegate {
     }
     // MARK: - UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let ctr: GXWaterViewController = GXWaterViewController()
+        ctr.title = GX_ITEM_TITLE[indexPath.row]
+        if indexPath.row == 0 {
+            ctr.scrollDirection = .vertical
+        }
+        else {
+            ctr.scrollDirection = .horizontal
+        }
+        self.navigationController?.pushViewController(ctr, animated: true)
     }
 }
 
