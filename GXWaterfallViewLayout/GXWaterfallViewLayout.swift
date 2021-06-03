@@ -86,11 +86,14 @@ public extension GXWaterfallViewLayout {
     
     override var collectionViewContentSize: CGSize {
         guard self.collectionView != nil else { return .zero }
+        
+        let width = self.collectionView!.frame.width - self.collectionView!.contentInset.left - self.collectionView!.contentInset.right
+        let height = self.collectionView!.frame.height - self.collectionView!.contentInset.top - self.collectionView!.contentInset.bottom
         switch self.scrollDirection {
         case .vertical:
-            return CGSize(width: self.collectionView!.frame.width, height: max(self.startScrollDirPosition, self.collectionView!.frame.height))
+            return CGSize(width: width, height: max(self.startScrollDirPosition, height))
         case .horizontal:
-            return CGSize(width: max(self.startScrollDirPosition, self.collectionView!.frame.width), height: self.collectionView!.frame.height)
+            return CGSize(width: max(self.startScrollDirPosition, width), height: height)
         @unknown default:
             fatalError("unknown scrollDirection.")
         }
@@ -199,7 +202,7 @@ fileprivate extension GXWaterfallViewLayout {
             if self.headerSize > 0 && respondsSupplementary {
                 let indexPath = IndexPath(row: 0, section: section)
                 let attributes = UICollectionViewLayoutAttributes(forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, with: indexPath)
-                attributes.frame = CGRect(x: self.collectionView!.contentInset.left, y: self.startScrollDirPosition, width: contentWidth, height: self.headerSize)
+                attributes.frame = CGRect(x: 0, y: self.startScrollDirPosition, width: contentWidth, height: self.headerSize)
                 self.headLayoutInfo[indexPath] = attributes
                 self.startScrollDirPosition += self.headerSize + self.sectionInset.top
             }
@@ -226,7 +229,7 @@ fileprivate extension GXWaterfallViewLayout {
                         top = iTop; currentRow = i
                     }
                 }
-                let left = self.collectionView!.contentInset.left + self.sectionInset.left + (self.interitemSpacing + itemWidth) * CGFloat(currentRow)
+                let left = self.sectionInset.left + (self.interitemSpacing + itemWidth) * CGFloat(currentRow)
                 let itemHeight: CGFloat = self.delegate?.size(layout: self, indexPath: indexPath, itemSize: itemWidth) ?? 0
                 attributes.frame = CGRect(x: left, y: top, width: itemWidth, height: itemHeight)
                 self.cellLayoutInfo[indexPath] = attributes
@@ -251,7 +254,7 @@ fileprivate extension GXWaterfallViewLayout {
             if self.footerSize > 0 && respondsSupplementary {
                 let indexPath = IndexPath(row: 0, section: section)
                 let attributes = UICollectionViewLayoutAttributes(forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, with: indexPath)
-                attributes.frame = CGRect(x: self.collectionView!.contentInset.left, y: self.startScrollDirPosition, width: contentWidth, height: self.footerSize)
+                attributes.frame = CGRect(x: 0, y: self.startScrollDirPosition, width: contentWidth, height: self.footerSize)
                 self.footLayoutInfo[indexPath] = attributes
                 self.startScrollDirPosition += self.footerSize
             }
@@ -279,7 +282,7 @@ fileprivate extension GXWaterfallViewLayout {
             if self.headerSize > 0 && respondsSupplementary {
                 let indexPath = IndexPath(row: 0, section: section)
                 let attributes = UICollectionViewLayoutAttributes(forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, with: indexPath)
-                attributes.frame = CGRect(x: self.startScrollDirPosition, y: self.collectionView!.contentInset.top, width: self.headerSize, height: contentHeight)
+                attributes.frame = CGRect(x: self.startScrollDirPosition, y: 0, width: self.headerSize, height: contentHeight)
                 self.headLayoutInfo[indexPath] = attributes
                 self.startScrollDirPosition += self.headerSize + self.sectionInset.left
             }
@@ -306,7 +309,7 @@ fileprivate extension GXWaterfallViewLayout {
                         left = iLeft; currentRow = i
                     }
                 }
-                let top = self.collectionView!.contentInset.top + self.sectionInset.top + (self.lineSpacing + itemHeight) * CGFloat(currentRow)
+                let top = self.sectionInset.top + (self.lineSpacing + itemHeight) * CGFloat(currentRow)
                 let itemWidth: CGFloat = self.delegate?.size(layout: self, indexPath: indexPath, itemSize: itemHeight) ?? 0
                 attributes.frame = CGRect(x: left, y: top, width: itemWidth, height: itemHeight)
                 self.cellLayoutInfo[indexPath] = attributes
@@ -331,7 +334,7 @@ fileprivate extension GXWaterfallViewLayout {
             if self.footerSize > 0 && respondsSupplementary {
                 let indexPath = IndexPath(row: 0, section: section)
                 let attributes = UICollectionViewLayoutAttributes(forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, with: indexPath)
-                attributes.frame = CGRect(x: self.startScrollDirPosition, y: self.collectionView!.contentInset.top, width: self.footerSize, height: contentHeight)
+                attributes.frame = CGRect(x: self.startScrollDirPosition, y: 0, width: self.footerSize, height: contentHeight)
                 self.footLayoutInfo[indexPath] = attributes
                 self.startScrollDirPosition += self.footerSize
             }
