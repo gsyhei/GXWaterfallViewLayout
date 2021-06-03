@@ -192,7 +192,7 @@ fileprivate extension GXWaterfallViewLayout {
         
         // Section attributes
         let sectionCount: Int = self.collectionView!.numberOfSections
-        let respondsSupplementary: Bool = self.collectionView!.dataSource!.responds(to: #selector(self.collectionView!.supplementaryView(forElementKind:at:)))
+        let respondsSupplementary: Bool = self.collectionView!.responds(to: #selector(self.collectionView!.supplementaryView(forElementKind:at:)))
         
         for section in 0..<sectionCount {
             // Haders layout
@@ -272,7 +272,7 @@ fileprivate extension GXWaterfallViewLayout {
         
         // Section attributes
         let sectionCount: Int = self.collectionView!.numberOfSections
-        let respondsSupplementary: Bool = self.collectionView!.dataSource!.responds(to: #selector(self.collectionView!.supplementaryView(forElementKind:at:)))
+        let respondsSupplementary: Bool = self.collectionView!.responds(to: #selector(self.collectionView!.supplementaryView(forElementKind:at:)))
         
         for section in 0..<sectionCount {
             // Haders layout

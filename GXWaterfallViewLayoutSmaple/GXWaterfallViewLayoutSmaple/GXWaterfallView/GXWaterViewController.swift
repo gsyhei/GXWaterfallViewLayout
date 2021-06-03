@@ -50,6 +50,7 @@ class GXWaterViewController: UIViewController {
         var array2: Array<String> = []
         for i in 0..<100 {
             array1.append(String(format: "%d.jpeg", i%13))
+            array2.append(String(format: "%d.jpeg", i%13))
         }
         imageArr.append(array1)
         imageArr.append(array2)
